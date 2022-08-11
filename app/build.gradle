@@ -1,0 +1,33 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 31
+    defaultConfig {
+        applicationId "com.test.bcrtest"
+        minSdk 31
+        targetSdk 31
+        versionCode 1000
+        versionName "1.0.0.0"
+    }
+    signingConfigs {
+        config {
+            storeFile file('application.jks')
+            storePassword 'application'
+            keyAlias 'application'
+            keyPassword 'application'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
